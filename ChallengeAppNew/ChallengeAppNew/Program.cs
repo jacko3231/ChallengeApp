@@ -1,4 +1,7 @@
-﻿long number = 5712348375585839930;
+﻿Console.WriteLine("Podaj jakąkolwiek liczbę: ");
+Console.WriteLine();
+Console.WriteLine("-------------------------");
+long number = long.Parse(Console.ReadLine());
 string numberAsString = number.ToString();
 char[] letters = numberAsString.ToArray();
 
@@ -58,8 +61,7 @@ foreach (char letter in letters)
     }
 }
 
-
-Console.WriteLine("Podana liczba to " + number);
+Console.WriteLine("Podana liczba to: " + number);
 Console.WriteLine();
 Console.WriteLine("---------------------------");
 Console.WriteLine();
