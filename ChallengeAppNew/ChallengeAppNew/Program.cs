@@ -65,6 +65,7 @@ Console.WriteLine("Podana liczba to: " + number);
 Console.WriteLine();
 Console.WriteLine("---------------------------");
 Console.WriteLine();
+Console.WriteLine("0 => " + counter0);
 Console.WriteLine("1 => " + counter1);
 Console.WriteLine("2 => " + counter2);
 Console.WriteLine("3 => " + counter3);
