@@ -19,12 +19,10 @@
                 return this.score.Sum();
             }
         }
-
         public void AddScore(int number)
         {
             this.score.Add(number);
         }
-
     }
 }
 
