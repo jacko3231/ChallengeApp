@@ -3,6 +3,15 @@
     public class Employee
     {
         private List<int> score = new List<int>();
+        public Employee(string name)
+        {
+            this.Name = name;
+        }
+        public Employee(string name, string surname)
+        {
+            this.Name = name;
+            this.Surname = surname;
+        }
         public Employee(string name, string surname, int age)
         {
             this.Name = name;
