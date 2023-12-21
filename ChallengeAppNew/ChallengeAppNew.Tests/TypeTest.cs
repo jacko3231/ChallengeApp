@@ -3,25 +3,36 @@
     internal class TypeTest
     {
         [Test]
-        public void TEST()
+        public void CheckingThatTwoEmployeesAreEqualOrNot()
         {
           
-            var employee1 = GetEmployee("Jacek");
-            var employee2 = GetEmployee("Jacek");         
+            Employee employee1 = GetEmployee2("Jacek","Zybaczynski");
+            Employee employee2 = GetEmployee2("Jacek","Zbaczynski");         
             
             Assert.AreEqual(employee1.Name, employee2.Name);
+            Assert.AreNotEqual(employee1.Surname, employee2.Surname);
         }
-        
         [Test]
-        public void TEST2()
+        public void CheckingThatTwoEmployeesAreEqual()
+        {
+
+            Employee employee1 = GetEmployee("Jacek");
+            Employee employee2 = GetEmployee("Jacek");
+
+            Assert.AreEqual(employee1.Name, employee2.Name);
+        }
+
+        [Test]
+        public void CheckingThatTwoNumbersAreEqual()
         {
             int number1 = 10;
             int number2 = 15;
 
            Assert.AreNotEqual(number1, number2);
         }
+        
         [Test]
-        public void TEST3()
+        public void CheckingThatTwoNumbersAreEqualOrNot()
         {
             float number1 = 9837473f;
             float number2 = 8748473f;
@@ -32,5 +43,10 @@
         {
             return new Employee(name);
         }
+        private Employee GetEmployee2(string name, string surname)
+        {
+            return new Employee(name, surname);
+        }
     }
 }
+
