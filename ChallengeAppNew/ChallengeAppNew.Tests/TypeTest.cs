@@ -6,8 +6,8 @@
         public void CheckingThatTwoEmployeesAreEqualOrNot()
         {
           
-            Employee employee1 = GetEmployee2("Jacek","Zybaczynski");
-            Employee employee2 = GetEmployee2("Jacek","Zbaczynski");         
+            Employee employee1 = GetEmployee("Jacek","Zybaczynski");
+            Employee employee2 = GetEmployee("Jacek","Zbaczynski");         
             
             Assert.AreEqual(employee1.Name, employee2.Name);
             Assert.AreNotEqual(employee1.Surname, employee2.Surname);
@@ -16,8 +16,8 @@
         public void CheckingThatTwoEmployeesAreEqual()
         {
 
-            Employee employee1 = GetEmployee("Jacek");
-            Employee employee2 = GetEmployee("Jacek");
+            Employee employee1 = GetEmployee("Jacek", "Zybaczynski");
+            Employee employee2 = GetEmployee("Jacek", "Zybaczynski");
 
             Assert.AreEqual(employee1.Name, employee2.Name);
         }
@@ -38,12 +38,8 @@
             float number2 = 8748473f;
 
             Assert.AreNotEqual(number1, number2);
-        }
-        private Employee GetEmployee(string name)
-        {
-            return new Employee(name);
-        }
-        private Employee GetEmployee2(string name, string surname)
+        }     
+        private Employee GetEmployee(string name, string surname)
         {
             return new Employee(name, surname);
         }

@@ -1,44 +1,37 @@
 namespace ChallengeAppNew.Tests
 {
-    public class Tests
+    public class EmployeeTests
     {
         [Test]
-        public void WhenTwoNumbersAreAdded_ShouldReturnSum()
+        public void CompareAndCheckingStatisticsAreEqual()
         {
-           int number1 = 10;
-           int number2 = 15;
-
-           int result = number1 + number2;
-           
-           Assert.AreEqual(25, result);
-        }
-        [Test]
-        public void WhenEmployeeCollectsFiveSetOfPoints_ShouldReturnSum()
-        {
-            Employee employee = new Employee("Jacek", "Zybaczyñski", 33);
-            employee.AddScore(12);
-            employee.AddScore(3);
+            var employee = new Employee("Jacek", "Zybaczynski");
             employee.AddScore(4);
-            employee.AddScore(9);
+            employee.AddScore(4);
             employee.AddScore(1);
 
-            int result = employee.Result;
-           
-            Assert.AreEqual(29, result);
+            var statistics = employee.GetStatictics();
+
+            Assert.AreEqual(3, statistics.Average);
+            Assert.AreEqual(4, statistics.Max);
+            Assert.AreEqual(1, statistics.Min);
         }
         [Test]
-        public void WhenEmployeeCollectsFiveSetOfPoints_ShouldReturnCorrectResult()
+        public void CompareAndCheckingStatisticsAreEqualOrNotEqual()
         {
-            Employee employee = new Employee("Jacek", "Zybaczyñski", 33);
-            employee.AddScore(12);
-            employee.AddScore(-3);
-            employee.AddScore(-4);
-            employee.AddScore(1);
-            employee.AddScore(-1);
+            var employee = new Employee("Jacek", "Zybaczynski");
+            employee.AddScore(4);
+            employee.AddScore(7);
+            employee.AddScore(9);
+            employee.AddScore(2);
+            employee.AddScore(3);
+            employee.AddScore(5);
 
-            int result = employee.Result;
+            var statistics = employee.GetStatictics();
 
-            Assert.AreEqual(5, result);
+            Assert.AreEqual(5,statistics.Average);
+            Assert.AreEqual(9, statistics.Max);
+            Assert.AreEqual(2, statistics.Min);
         }
     }
 }
