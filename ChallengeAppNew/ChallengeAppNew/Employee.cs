@@ -11,6 +11,7 @@
         }      
         public string Name { get; private set; }
         public string Surname { get; private set; }
+       
         public void AddScore(float score)
         {
             if(score >= 0 && score <= 100)
@@ -22,6 +23,7 @@
                 Console.WriteLine("Invalid score data");
             }       
         }
+       
         public void AddScore(string score)
         {
             if(float.TryParse(score, out float result))
@@ -33,21 +35,25 @@
                 Console.WriteLine("String is not float");
             }
         }
-        public void Addscore(int score)
+        
+        public void AddScore(int score)
         {
             float scoreToInt = (int)score;
             this.AddScore(scoreToInt);
         }   
-        public void Addscore(double score)
+        
+        public void AddScore(double score)
         {
             float scoreToFloat = (float)score;
             this.AddScore(scoreToFloat);
         }
-        public void Addscore(long score)
+        
+        public void AddScore(long score)
         {
             float scoreToLong = (long)score;
             this.AddScore(scoreToLong);
         }
+       
         public Statistics GetStatictics()
         {
             var statictics = new Statistics();
