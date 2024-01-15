@@ -90,7 +90,6 @@ namespace ChallengeAppNew
                 statistics.Max = Math.Max(statistics.Max, this.scores[index]);
                 statistics.Min = Math.Min(statistics.Min, this.scores[index]);
                 statistics.Average += this.scores[index];
-                index++;
             }
 
             statistics.Average /= this.scores.Count;
@@ -132,9 +131,9 @@ namespace ChallengeAppNew
 
             while(index < this.scores.Count)
             {
-                statictics.Max = Math.Max(statictics.Max, this.scores.Count);
-                statictics.Min = Math.Min(statictics.Min, this.scores.Count);
-                statictics.Average += this.scores.Count;
+                statictics.Max = Math.Max(statictics.Max, this.scores[index]);
+                statictics.Min = Math.Min(statictics.Min, this.scores[index]);
+                statictics.Average += this.scores[index];
                 index++;
             }
    
