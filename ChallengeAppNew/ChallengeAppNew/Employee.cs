@@ -55,7 +55,7 @@ namespace ChallengeAppNew
             float scoreToLong = (long)score;
             this.AddScore(scoreToLong);
         }
-        //Pętla Foreach
+
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
@@ -72,75 +72,8 @@ namespace ChallengeAppNew
             statistics.Average /= this.scores.Count;
 
             return statistics;
-        }
-
-        //Pętla For
-        public Statistics GetStatisticsWithFor()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            var index = 0;
-            index = scores.Count;
-            index++;
-
-            for (index = 0; index < scores.Count; index++)
-            {
-                statistics.Max = Math.Max(statistics.Max, this.scores[index]);
-                statistics.Min = Math.Min(statistics.Min, this.scores[index]);
-                statistics.Average += this.scores[index];
-            }
-
-            statistics.Average /= this.scores.Count;
-
-            return statistics;
-        }
-
-        //Pętla Do While
-        public Statistics GetStatisticsWithDoWhile()
-        {
-            var statictics = new Statistics();
-            statictics.Average = 0;
-            statictics.Max = float.MinValue;
-            statictics.Min = float.MaxValue;
-            var index = 0;
-
-            do
-            {
-                statictics.Max = Math.Max(statictics.Max, this.scores[index]);
-                statictics.Min = Math.Min(statictics.Min, this.scores[index]);
-                statictics.Average += this.scores[index];
-                index++;
-
-            } while (index < this.scores.Count);
-                        
-            statictics.Average /= this.scores.Count;
-
-            return statictics;
-        }
-
-        //Pętla While
-        public Statistics GetStatisticsWithWhile()
-        {
-            var statictics = new Statistics();
-            statictics.Average = 0;
-            statictics.Max = float.MinValue;
-            statictics.Min = float.MaxValue;
-            var index = 0;
-
-            while(index < this.scores.Count)
-            {
-                statictics.Max = Math.Max(statictics.Max, this.scores[index]);
-                statictics.Min = Math.Min(statictics.Min, this.scores[index]);
-                statictics.Average += this.scores[index];
-                index++;
-            }
-   
-            statictics.Average /= this.scores.Count;
-
-            return statictics;
-        }
+        }       
     }
 }
+
 

@@ -13,7 +13,7 @@ namespace ChallengeAppNew.Tests
             employee.AddScore(3);
             employee.AddScore(5);
 
-            var statistics = employee.GetStatictics();
+            var statistics = employee.GetStatistics();
 
             Assert.AreEqual(5,statistics.Average);
             Assert.AreEqual(9, statistics.Max);
