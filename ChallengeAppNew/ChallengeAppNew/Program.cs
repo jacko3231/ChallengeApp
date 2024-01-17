@@ -1,9 +1,29 @@
 ﻿using ChallengeAppNew;
 
-Employee employee = new Employee("Jacek", "Zybaczyński");
-employee.AddScore(7);
-employee.AddScore(6);
-employee.AddScore(8);
-employee.AddScore(7);
-employee.AddScore(7);
+Console.WriteLine("Witamy w programie XYZ");
+Console.WriteLine("=======================\n");
+Console.WriteLine("Podaj imię i nazwisko pracownika:");
+Console.WriteLine("-------------------------");
+string fullName =Console.ReadLine();
+Console.WriteLine("-------------------------");
 
+Employee employee = new Employee(fullName);
+
+while(true)
+{
+    Console.WriteLine("Podaj liczbę: ");
+    var input = Console.ReadLine();
+  
+    if(input == "q" || input == "Q")
+    { 
+        break;
+    } 
+    employee.AddScore(input);
+}
+
+var statistics = employee.GetStatistics();
+
+Console.WriteLine($"Employee: {fullName}\n-------------");
+Console.WriteLine($"Average: {statistics.Average:N2}");
+Console.WriteLine($"Max: {statistics.Max}");
+Console.WriteLine($"Min: {statistics.Min}");
