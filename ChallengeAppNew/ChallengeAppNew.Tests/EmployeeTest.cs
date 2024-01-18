@@ -36,7 +36,7 @@ namespace ChallengeAppNew.Tests
 
             var statistics = employee.GetStatistics();
 
-            Assert.AreEqual('b', statistics.AverageLetter);           
+            Assert.AreEqual('B', statistics.AverageLetter);           
         }
     }
 }
