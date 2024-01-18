@@ -9,18 +9,24 @@ Console.WriteLine("-------------------------");
 
 Employee employee = new Employee(fullName);
 
-while(true)
+while (true)
 {
     Console.WriteLine("Podaj liczbę: ");
     var input = Console.ReadLine();
-  
-    if(input == "q" || input == "Q")
-    { 
-        break;
-    } 
-    employee.AddScore(input);
-}
 
+    if (input == "q" || input == "Q")
+    {
+        break;
+    }
+    try
+    {
+        employee.AddScore(input);
+    }
+    catch (Exception exception)
+    {
+        Console.WriteLine($"Exception Catched: {exception.Message}");
+    }
+}
 var statistics = employee.GetStatistics();
 
 Console.WriteLine($"Employee: {fullName}\n-------------");

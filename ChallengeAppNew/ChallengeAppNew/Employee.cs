@@ -1,16 +1,13 @@
-﻿using static System.Formats.Asn1.AsnWriter;
-
-namespace ChallengeAppNew
+﻿namespace ChallengeAppNew
 {
     public class Employee
-    {
+    {      
         private List<float> scores = new List<float>();
         public Employee(string fullName)
         {
             this.Name = fullName;
-            
         }
-       
+
         public Employee(string name, string surname)
         {
             this.Name = name;
@@ -27,7 +24,7 @@ namespace ChallengeAppNew
             }
             else
             {
-                Console.WriteLine("Invalid score data");
+                throw new Exception("Invalid score data");
             }
         }
 
@@ -43,7 +40,7 @@ namespace ChallengeAppNew
             }
             else 
             {
-                Console.WriteLine("String is not float");
+                throw new Exception("String is not float");
             }
         }
 
@@ -78,8 +75,7 @@ namespace ChallengeAppNew
                     this.scores.Add(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong Letter");
-                    break;
+                    throw new Exception("Wrong Letter");
             }
         }
         
@@ -132,8 +128,7 @@ namespace ChallengeAppNew
                     statistics.AverageLetter = 'E';
                     break;
             }
-
-            return statistics;
+                       return statistics;
         }       
     }
 }
