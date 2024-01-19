@@ -2,12 +2,8 @@
 
 Console.WriteLine("Witamy w programie XYZ");
 Console.WriteLine("=======================\n");
-Console.WriteLine("Podaj imię i nazwisko pracownika:");
-Console.WriteLine("-------------------------");
-string fullName =Console.ReadLine();
-Console.WriteLine("-------------------------");
 
-Employee employee = new Employee(fullName);
+Employee employee = new Employee("Jacek", "Zybaczyński", 'M');
 
 while (true)
 {
@@ -29,7 +25,9 @@ while (true)
 }
 var statistics = employee.GetStatistics();
 
-Console.WriteLine($"Employee: {fullName}\n-------------");
 Console.WriteLine($"Average: {statistics.Average:N2}");
 Console.WriteLine($"Max: {statistics.Max}");
 Console.WriteLine($"Min: {statistics.Min}");
+
+
+

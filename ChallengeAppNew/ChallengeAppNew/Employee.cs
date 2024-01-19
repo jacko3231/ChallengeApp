@@ -1,21 +1,14 @@
 ﻿namespace ChallengeAppNew
 {
-    public class Employee
+    public class Employee : Person
     {      
         private List<float> scores = new List<float>();
-        public Employee(string fullName)
-        {
-            this.Name = fullName;
+        public Employee(string name, string surname, char sex)
+            :base(name, surname, sex)
+        {      
+        
         }
-
-        public Employee(string name, string surname)
-        {
-            this.Name = name;
-            this.Surname = surname;
-        }
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
-
+        
         public void AddScore(float score)
         {
             if (score >= 0 && score <= 100)
