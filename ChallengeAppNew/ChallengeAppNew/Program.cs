@@ -1,9 +1,9 @@
 ﻿using ChallengeAppNew;
 
-Console.WriteLine("Witamy w programie XYZ");
+Console.WriteLine("Witamy w programie XYZ do oceny pracowników: ");
 Console.WriteLine("=======================\n");
 
-Employee employee = new Employee("Jacek", "Zybaczyński", 'M');
+TeamLeader teamLeader = new TeamLeader("Marek", "Kowalski", 'M');
 
 while (true)
 {
@@ -16,18 +16,21 @@ while (true)
     }
     try
     {
-        employee.AddScore(input);
+        teamLeader.AddScore(input);
     }
     catch (Exception exception)
     {
         Console.WriteLine($"Exception Catched: {exception.Message}");
     }
 }
-var statistics = employee.GetStatistics();
+var statistics = teamLeader.GetStatistics();
 
 Console.WriteLine($"Average: {statistics.Average:N2}");
 Console.WriteLine($"Max: {statistics.Max}");
 Console.WriteLine($"Min: {statistics.Min}");
+
+
+
 
 
 

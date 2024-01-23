@@ -1,44 +1,82 @@
-﻿namespace ChallengeAppNew
+﻿
+namespace ChallengeAppNew
 {
-    public class Employee : IEmployee
-    {      
+    public class TeamLeader : IEmployee
+    {
         private List<float> scores = new List<float>();
-        public Employee(string name, string surname, char sex)
+        public TeamLeader(string name, string surname, char sex)
         {
             this.Name = name;
             this.Surname = surname;
             this.Sex = sex;
-
         }
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public char Sex { get; private set; }
-        
+
         public void AddScore(float score)
         {
             if (score >= 0 && score <= 100)
             {
-                this.AddScore(score);
+                this.scores.Add(score);
             }
             else
             {
                 throw new Exception("Invalid score data");
             }
         }
-
+        
         public void AddScore(string score)
         {
-            if (float.TryParse(score, out float result))
+          switch(score)
             {
-                this.AddScore(result);
-            }
-            else if (char.TryParse(score, out char resultChar))
-            {
-                this.AddScore(resultChar);
-            }
-            else 
-            {
-                throw new Exception("String is not float");
+                case "6":
+                    this.AddScore(100);
+                    break;
+                case "-6" or "6-":
+                    this.AddScore(95);
+                    break;
+                case "+5" or "5+":
+                    this.AddScore(90);
+                    break;
+                case "5":
+                    this.AddScore(85);
+                    break;
+                case "-5" or "5-":
+                    this.AddScore(80);
+                    break;
+                case "+4" or "4+":
+                    this.AddScore(75);
+                    break;
+                case "4":
+                    this.AddScore(70);
+                    break;
+                case "-4" or "4-":
+                    this.AddScore(65);
+                    break;
+                case "+3" or "3+":
+                    this.AddScore(60);
+                    break;
+                case "3":
+                    this.AddScore(55);
+                    break;
+                case "-3" or "3-":
+                    this.AddScore(50);
+                    break;
+                case "+2" or "2+":
+                    this.AddScore(45);
+                    break;
+                case "2":
+                    this.AddScore(35);
+                    break;
+                case "-2" or "2-":
+                    this.AddScore(30);
+                    break;
+                case "1":
+                    this.AddScore(20);
+                    break;
+                default:
+                    throw new Exception("Wrong Letter/Wrong Value");
             }
         }
 
@@ -50,33 +88,10 @@
 
         public void AddScore(char score)
         {
-            switch (score)
-            {
-                case 'A':
-                case 'a':
-                    this.AddScore(100);
-                    break;
-                case 'B':
-                case 'b':
-                    this.AddScore(80);
-                    break;
-                case 'C':
-                case 'c':
-                    this.AddScore(60);
-                    break;
-                case 'D':
-                case 'd':
-                    this.AddScore(40);
-                    break;
-                case 'E':
-                case 'e':
-                    this.AddScore(20);
-                    break;
-                default:
-                    throw new Exception("Wrong Letter");
-            }
+           string value = score.ToString();
+            this.AddScore(value);
         }
-        
+
         public void AddScore(double score)
         {
             float scoreToFloat = (float)score;
@@ -98,7 +113,7 @@
             }
             statistics.Average /= this.scores.Count;
 
-            switch(statistics.Average)
+            switch (statistics.Average)
             {
                 case var average when average > 80:
                     statistics.AverageLetter = 'A';
@@ -116,8 +131,8 @@
                     statistics.AverageLetter = 'E';
                     break;
             }
-                       return statistics;
-        }       
+            return statistics;
+        }
     }
 }
 
