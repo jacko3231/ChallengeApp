@@ -88,8 +88,31 @@ namespace ChallengeAppNew
 
         public void AddScore(char score)
         {
-           string value = score.ToString();
-            this.AddScore(value);
+            switch (score)
+            {
+                case 'A':
+                case 'a':
+                    this.AddScore(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.AddScore(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.AddScore(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.AddScore(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.AddScore(20);
+                    break;
+                default:
+                    throw new Exception("Wrong letter");
+            }
         }
 
         public void AddScore(double score)

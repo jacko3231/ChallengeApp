@@ -18,7 +18,7 @@
         {
             if (score >= 0 && score <= 100)
             {
-                this.AddScore(score);
+                this.scores.Add(score);
             }
             else
             {
