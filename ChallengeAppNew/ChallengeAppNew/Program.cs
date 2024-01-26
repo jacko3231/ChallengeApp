@@ -3,7 +3,8 @@
 Console.WriteLine("Witamy w programie XYZ do oceny pracowników: ");
 Console.WriteLine("=======================\n");
 
-TeamLeader teamLeader = new TeamLeader("Marek", "Kowalski", 'M');
+var employee = new EmployeeInFile("Jacek", "Zybaczynski", 'M');
+
 
 while (true)
 {
@@ -16,14 +17,14 @@ while (true)
     }
     try
     {
-        teamLeader.AddScore(input);
+        employee.AddScore(input);
     }
     catch (Exception exception)
     {
         Console.WriteLine($"Exception Catched: {exception.Message}");
     }
 }
-var statistics = teamLeader.GetStatistics();
+var statistics = employee.GetStatistics();
 
 Console.WriteLine($"Average: {statistics.Average:N2}");
 Console.WriteLine($"Max: {statistics.Max}");
