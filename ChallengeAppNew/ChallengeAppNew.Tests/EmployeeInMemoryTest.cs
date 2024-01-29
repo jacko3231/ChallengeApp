@@ -5,7 +5,7 @@ namespace ChallengeAppNew.Tests
         [Test]
         public void CheckingIfStatisticsLettersforEmployeeAreEqualWithNumbers()
         {
-            Employee employee = new Employee("Jacek Zybaczynski");
+            var employee = new EmployeeInMemory("Jacek", "Zybaczyñski", 'M');
             employee.AddScore('a');
             employee.AddScore('A');
             employee.AddScore('B');
@@ -25,7 +25,7 @@ namespace ChallengeAppNew.Tests
         [Test]
         public void CheckingAverageOfStatisticsByAverageLetter()
         {
-            Employee employee = new Employee("Jacek Zybaczynski");
+            var employee = new EmployeeInMemory("Ewa", "Komor", 'K');
             employee.AddScore(100);
             employee.AddScore(40);
             employee.AddScore(80);

@@ -4,6 +4,10 @@ namespace ChallengeAppNew
 {
     public class EmployeeInFile : EmployeeBase
     {
+        public delegate void ScoreAddedDelegate(object sender, EventArgs args);
+
+        public event ScoreAddedDelegate ScoreAdded;
+
         private const string fileName = "scores.txt";
         public EmployeeInFile(string name, string surname, char sex) 
             : base(name, surname, sex)
@@ -18,6 +22,10 @@ namespace ChallengeAppNew
            if (score >= 0 && score <= 100)
            {
               writer.WriteLine(score);
+              if(ScoreAdded != null) 
+              { 
+                ScoreAdded(this, new EventArgs());
+              }
            }
            else
            {                   
