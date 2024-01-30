@@ -4,6 +4,9 @@ namespace ChallengeAppNew
 {
     public abstract class EmployeeBase : IEmployee
     {
+        public delegate void ScoreAddedDelegate(object sender, EventArgs args);
+
+        public abstract event EmployeeInMemory.ScoreAddedDelegate ScoreAdded;
         public EmployeeBase(string name, string surname, char sex)
         {
             this.Name = name;

@@ -1,4 +1,6 @@
-﻿namespace ChallengeAppNew
+﻿using static ChallengeAppNew.EmployeeInMemory;
+
+namespace ChallengeAppNew
 {
     public interface IEmployee
     {
@@ -17,6 +19,8 @@
         void AddScore(char score);
 
         void AddScore(double score);
+
+        public event ScoreAddedDelegate ScoreAdded;
 
         Statistics GetStatistics();
     }

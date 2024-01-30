@@ -4,7 +4,7 @@
     {
         public delegate void ScoreAddedDelegate(object sender, EventArgs args);
 
-        public event ScoreAddedDelegate ScoreAdded;
+        public override event ScoreAddedDelegate ScoreAdded;
 
         private List<float> scores = new List<float>();
         public EmployeeInMemory(string name, string surname, char sex) 
@@ -89,37 +89,13 @@
 
         public override Statistics GetStatistics()
         {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-
-            foreach (var score in this.scores)
-            {
-                statistics.Max = Math.Max(statistics.Max, score);
-                statistics.Min = Math.Min(statistics.Min, score);
-                statistics.Average += score;
+            var statistics = new Statistics();   
+            
+            foreach (var score in this.scores) 
+            { 
+              statistics.AddScore(score);
             }
-            statistics.Average /= this.scores.Count;
 
-            switch (statistics.Average)
-            {
-                case var average when average > 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average > 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average > 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average > 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
-            }
             return statistics;
         }
     }
