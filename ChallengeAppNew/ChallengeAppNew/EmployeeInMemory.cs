@@ -1,9 +1,7 @@
 ﻿namespace ChallengeAppNew
 {
     public class EmployeeInMemory : EmployeeBase
-    {
-        public delegate void ScoreAddedDelegate(object sender, EventArgs args);
-
+    {   
         public override event ScoreAddedDelegate ScoreAdded;
 
         private List<float> scores = new List<float>();

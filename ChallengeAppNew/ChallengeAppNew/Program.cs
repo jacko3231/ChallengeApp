@@ -13,10 +13,10 @@ void EmployeeScoreAdded(object sender, EventArgs args)
 
 while (true)
 {
-    Console.WriteLine("podaj liczbę: ");
+    Console.WriteLine("Podaj liczbę: ");
     var input = Console.ReadLine();
 
-    if (input == "q" || input == "q")
+    if (input == "q")
     {
         break;
     }

@@ -1,4 +1,4 @@
-﻿using static ChallengeAppNew.EmployeeInMemory;
+﻿using static ChallengeAppNew.EmployeeBase;
 
 namespace ChallengeAppNew
 {
@@ -20,7 +20,7 @@ namespace ChallengeAppNew
 
         void AddScore(double score);
 
-        public event ScoreAddedDelegate ScoreAdded;
+        event ScoreAddedDelegate ScoreAdded;
 
         Statistics GetStatistics();
     }
