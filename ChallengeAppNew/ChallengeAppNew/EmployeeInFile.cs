@@ -14,21 +14,22 @@ namespace ChallengeAppNew
         }
 
         public override void AddScore(float score)
-        {
+        {       
             using (var writer = File.AppendText(fileName))
-
-                if (score >= 0 && score <= 100)
-                {
-                    writer.WriteLine(score);
-                    if (ScoreAdded != null)
-                    {
-                        ScoreAdded(this, new EventArgs());
-                    }
-                }
-                else
-                {
-                    throw new Exception("Invalid score data: Please put number from 0 to 100!!!");
-                }
+           
+            if (score >= 0 && score <= 100)
+            {
+                writer.WriteLine(score);
+            }
+            if (ScoreAdded != null)
+            {
+              ScoreAdded(this, new EventArgs());
+            }
+            
+            else
+            {
+               throw new Exception("Invalid score data: Please put number from 0 to 100!!!");
+            }
         }
 
         public override void AddScore(string score)
@@ -46,13 +47,6 @@ namespace ChallengeAppNew
                 throw new Exception("String is not float");
             }
         }
-
-        public override void AddScore(int score)
-        {
-            float scoreToInt = (int)score;
-            this.AddScore(scoreToInt);
-        }
-
         public override void AddScore(char score)
         {
             switch (score)
@@ -82,6 +76,12 @@ namespace ChallengeAppNew
             }
         }
 
+        public override void AddScore(int score)
+        {
+            float scoreToInt = (int)score;
+            this.AddScore(scoreToInt);
+        }
+
         public override void AddScore(double score)
         {
             float scoreToFloat = (float)score;
@@ -91,6 +91,7 @@ namespace ChallengeAppNew
         private List<float> ReadScoresFromFileToList(string file)
         {
             List<float> result = new List<float>();
+            
             if (File.Exists(file))
             {
                 using (var reader = File.OpenText(file))
@@ -98,10 +99,10 @@ namespace ChallengeAppNew
                     var line = reader.ReadLine();
                     while (line != null)
                     {
-                        if (float.TryParse(line, out float value))
-                        {
-                            result.Add(value);
-                        }
+                      if (float.TryParse(line, out float value))
+                      {
+                         result.Add(value);
+                      }
                         line = reader.ReadLine();
                     }
                 }
@@ -117,8 +118,7 @@ namespace ChallengeAppNew
         {
             var statistics = new Statistics();
 
-            List <float> scores = ReadScoresFromFileToList(fileName);
-
+            List<float> scores = ReadScoresFromFileToList(fileName);
 
             foreach (var score in scores)
             {

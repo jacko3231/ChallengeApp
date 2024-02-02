@@ -3,7 +3,7 @@
 Console.WriteLine("Witamy w programie XYZ do oceny pracowników: ");
 Console.WriteLine("=======================\n");
 
-var employee = new EmployeeInMemory("Jacek", "Zybaczynski", 'M');
+var employee = new EmployeeInFile("Jacek", "Zybaczynski", 'M');
 employee.ScoreAdded += EmployeeScoreAdded;
 
 void EmployeeScoreAdded(object sender, EventArgs args)
